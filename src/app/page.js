@@ -1,6 +1,7 @@
 
 import Hero from "@/components/Hero";
-import SkillCard from "@/components/SkillsCard"
+import Kartu from "@/components/Kartu";
+import SkillCard from "@/components/SkillsCard";
 
 export default function Home() {
   const skills = [
@@ -18,7 +19,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="bg-[#eff6f0] min-h-screen text-[#1e293b] flex flex-col justify-between font-sans">
+    <div className="font-sans text-[#1e293b]">
       <main className="max-w-4xl mx-auto p-6 md:p-12 w-full space-y-6">
         
         {/* Section 1: Hero */}
@@ -28,28 +29,25 @@ export default function Home() {
         />
 
         {/* Section 2: Tentang Saya */}
-        <section className="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
-          <h2 className="text-xl font-bold text-[#1e293b] mb-2">Tentang Saya</h2>
+        <Kartu judul="Tentang Saya" id="tentang-saya">
           <p className="text-slate-600 leading-relaxed text-sm">
             Saya tinggal di Malang dan senang mencoba hal baru di dunia teknologi. Saya ingin bisa membuat website yang bermanfaat untuk sekolah dan UMKM di sekitar rumah.
           </p>
-        </section>
+        </Kartu>
 
         {/* Section 3 & 4: Hobi & Cita-Cita Grid (Responsif 2 Kolom) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Hobi */}
-          <section className="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
-            <h2 className="text-xl font-bold text-[#1e293b] mb-3">Hobi</h2>
-            <ul className="list-disc list-inside text-slate-600 text-sm space-y-1">
+          <Kartu judul="Hobi">
+            <ul className="list-inside list-disc space-y-1 text-sm text-slate-600">
               <li>Berenang</li>
               <li>Membaca Komik</li>
               <li>Membuat Miniatur</li>
             </ul>
-          </section>
+          </Kartu>
 
           {/* Cita-Cita */}
-          <section className="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
-            <h2 className="text-xl font-bold text-[#1e293b] mb-2">Cita-cita</h2>
+          <Kartu judul="Cita-cita">
             <p className="text-slate-600 text-sm mb-2">
               Menjadi <span className="font-bold text-[#1e293b]">Full Stack Web Developer</span>. Langkah yang saya rencanakan:
             </p>
@@ -58,22 +56,20 @@ export default function Home() {
               <li>Magang di perusahaan teknologi</li>
               <li>Bekerja sebagai Web Developer</li>
             </ol>
-          </section>
+          </Kartu>
         </div>
 
         {/* Section 5: Keahlian */}
-        <section className="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
-          <h2 className="text-xl font-bold text-[#1e293b] mb-4">Keahlian</h2>
+        <Kartu judul="Keahlian" id="keahlian">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {skills.map((skill) => (
               <SkillCard key={skill.id} nama={skill.nama} level={skill.level} />
             ))}
           </div>
-        </section>
+        </Kartu>
 
         {/* Section 6: Jadwal Belajar */}
-        <section className="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
-          <h2 className="text-xl font-bold text-[#1e293b] mb-4">Jadwal Belajar</h2>
+        <Kartu judul="Jadwal Belajar">
           <div className="overflow-x-auto rounded-lg border border-slate-100">
             <table className="w-full text-left border-collapse text-sm">
               <thead>
@@ -94,14 +90,8 @@ export default function Home() {
               </tbody>
             </table>
           </div>
-        </section>
-
+        </Kartu>
       </main>
-
-      {/* Footer */}
-      <footer className="bg-[#1e3a8a] text-white text-center py-4 text-xs font-light">
-        © 2026 Danendra  Fadhil Abiyu Hadianto. Dibuat dengan Next.js di Kelas Industri UBIG.
-      </footer>
     </div>
   );
 }
