@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Rizki Akbar Pradana | portofolio",
-  description: "portofolio Rizki Akbar Pradana, siswa SMK calon Junior Web Developer di kelas Industri UBIG",
+  title: "Danendra  Fadhil Abiyu Hadianto | portofolio",
+  description: "portofolio Danendra  Fadhil Abiyu Hadianto, siswa SMK calon Junior Web Developer di kelas Industri UBIG",
 };
 
 
