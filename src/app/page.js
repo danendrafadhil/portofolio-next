@@ -100,7 +100,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="bg-[#1e3a8a] text-white text-center py-4 text-xs font-light">
-        © 2026 Danendra Fadhil Abiyu Hadianto. Dibuat dengan Next.js di Kelas Industri UBIG.
+        © 2026 Danendra  Fadhil Abiyu Hadianto. Dibuat dengan Next.js di Kelas Industri UBIG.
       </footer>
     </div>
   );
