@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Danendra  Fadhil Abiyu Hadianto | portofolio",
+  title: "Danendra Fadhil Abiyu Hadianto | portofolio",
   description: "portofolio Danendra  Fadhil Abiyu Hadianto, siswa SMK calon Junior Web Developer di kelas Industri UBIG",
 };
 
