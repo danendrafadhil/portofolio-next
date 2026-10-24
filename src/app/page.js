@@ -1,7 +1,7 @@
 
 import Hero from "@/components/Hero";
 import Kartu from "@/components/Kartu";
-import SkillCard from "@/components/SkillCard";
+import SkillCard from "@/components/SkillsCard";
 
 export default function Home() {
   const skills = [
