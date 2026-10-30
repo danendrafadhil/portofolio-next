@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
-@theme {  
-  --color-utama: #1D3557;  
-  --color-aksen: #C1121F;  
-  --color-latar: #F1FAEE; 
+@theme {
+  --color-utama: #1d3557;
+  --color-aksen: #c1121f;
+  --color-latar: #f1faee;
 }
