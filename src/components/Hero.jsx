@@ -13,10 +13,12 @@ export default function Hero({ nama, tagline }) {
         className="h-36 w-36 shrink-0 rounded-full border-4 border-aksen object-cover md:h-44 md:w-44"
       />
       <div>
-        <h1 className="text-3xl font-bold text-utama md:text-4xl xl:text-5xl">
+        <h1 className="text-3xl font-bold text-utama dark:text-sky-200 md:text-4xl xl:text-5xl">
           Halo, saya {nama}!
         </h1>
-        <p className="mt-3 text-lg text-gray-700">{tagline}</p>
+        <p className="mt-3 text-lg text-gray-700 dark:text-gray-300">
+          {tagline}
+        </p>
         <nav
           aria-label="Navigasi portofolio"
           className="mt-5 flex flex-wrap justify-center gap-3 md:justify-start"
@@ -29,7 +31,7 @@ export default function Hero({ nama, tagline }) {
           </Link>
           <Link
             href="/keahlian"
-            className="rounded-lg border border-utama px-4 py-2 text-sm font-semibold text-utama transition-colors hover:bg-utama hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-utama"
+            className="rounded-lg border border-utama px-4 py-2 text-sm font-semibold text-utama transition-colors hover:bg-utama hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-utama dark:border-sky-200 dark:text-sky-200"
           >
             Lihat keahlian
           </Link>

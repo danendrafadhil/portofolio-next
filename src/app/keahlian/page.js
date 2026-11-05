@@ -11,10 +11,10 @@ export default function KeahlianPage() {
   return (
     <main className="mx-auto w-full max-w-6xl px-5 py-10 md:px-8 md:py-16">
       <header className="mb-8">
-        <h1 className="text-3xl font-bold text-utama md:text-4xl">
+        <h1 className="text-3xl font-bold text-utama dark:text-sky-200 md:text-4xl">
           Keahlian Saya
         </h1>
-        <p className="mt-3 max-w-2xl leading-7 text-slate-600">
+        <p className="mt-3 max-w-2xl leading-7 text-slate-600 dark:text-gray-300">
           Daftar kompetensi dan keahlian yang telah dan sedang saya pelajari.
           Pilih keahlian untuk membaca keterangannya.
         </p>
@@ -25,15 +25,15 @@ export default function KeahlianPage() {
           <Link
             key={item.slug}
             href={`/keahlian/${item.slug}`}
-            className="group rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition-shadow hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-utama"
+            className="group rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition-shadow hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-utama dark:border-gray-700 dark:bg-gray-800"
           >
-            <h2 className="text-lg font-semibold text-utama group-hover:underline">
+            <h2 className="text-lg font-semibold text-utama group-hover:underline dark:text-sky-200">
               {item.nama}
             </h2>
-            <p className="mt-1 text-sm text-slate-600">
+            <p className="mt-1 text-sm text-slate-600 dark:text-gray-300">
               Level: {item.level}
             </p>
-            <span className="mt-4 inline-block text-sm font-semibold text-utama">
+            <span className="mt-4 inline-block text-sm font-semibold text-utama dark:text-sky-200">
               Lihat detail &rarr;
             </span>
           </Link>

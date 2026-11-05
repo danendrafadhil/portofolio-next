@@ -16,7 +16,9 @@ export default function Home() {
       </section>
 
       <section>
-        <h2 className="mb-5 text-2xl font-bold text-utama">Keahlian</h2>
+        <h2 className="mb-5 text-2xl font-bold text-utama dark:text-sky-200">
+          Keahlian
+        </h2>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {keahlian.map((item) => (
             <SkillCard key={item.slug} nama={item.nama} level={item.level} />
@@ -33,8 +35,10 @@ export default function Home() {
       <section>
         <div className="mb-5 flex flex-wrap items-end justify-between gap-3">
           <div>
-            <h2 className="text-2xl font-bold text-utama">Proyek Terbaru</h2>
-            <p className="mt-2 text-slate-600">
+            <h2 className="text-2xl font-bold text-utama dark:text-sky-200">
+              Proyek Terbaru
+            </h2>
+            <p className="mt-2 text-slate-600 dark:text-gray-300">
               Beberapa hasil latihan yang saya buat selama mengikuti kelas.
             </p>
           </div>

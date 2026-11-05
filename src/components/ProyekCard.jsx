@@ -5,13 +5,13 @@ export default function ProyekCard({ proyek }) {
   const { slug, judul, deskripsi, gambar, teknologi } = proyek;
 
   return (
-    <article className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-shadow hover:shadow-md">
+    <article className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-shadow hover:shadow-md dark:border-gray-700 dark:bg-gray-800">
       <Link
         href={`/proyek/${slug}`}
         className="group block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-utama"
         aria-label={`Lihat detail ${judul}`}
       >
-        <div className="relative aspect-[16/10] overflow-hidden bg-slate-100">
+        <div className="relative aspect-[16/10] overflow-hidden bg-slate-100 dark:bg-gray-700">
           <Image
             src={gambar}
             alt={`Tampilan ${judul}`}
@@ -28,14 +28,16 @@ export default function ProyekCard({ proyek }) {
             {teknologi.map((nama) => (
               <li
                 key={nama}
-                className="rounded-full bg-latar px-2.5 py-1 text-xs text-slate-700"
+                className="rounded-full bg-latar px-2.5 py-1 text-xs text-slate-700 dark:bg-gray-700 dark:text-gray-200"
               >
                 {nama}
               </li>
             ))}
           </ul>
-          <h3 className="text-lg font-bold text-utama">{judul}</h3>
-          <p className="mt-2 line-clamp-3 text-sm leading-6 text-slate-600">
+          <h3 className="text-lg font-bold text-utama dark:text-sky-200">
+            {judul}
+          </h3>
+          <p className="mt-2 line-clamp-3 text-sm leading-6 text-slate-600 dark:text-gray-300">
             {deskripsi}
           </p>
         </div>

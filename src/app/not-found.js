@@ -9,11 +9,13 @@ export default function NotFound() {
   return (
     <main className="flex w-full flex-1 items-center justify-center px-5 py-20">
       <section className="max-w-xl text-center">
-        <p className="text-7xl font-extrabold text-aksen md:text-8xl">404</p>
-        <h1 className="mt-4 text-2xl font-bold text-utama md:text-3xl">
+        <p className="text-7xl font-extrabold text-aksen dark:text-red-400 md:text-8xl">
+          404
+        </p>
+        <h1 className="mt-4 text-2xl font-bold text-utama dark:text-sky-200 md:text-3xl">
           Halaman tidak ditemukan
         </h1>
-        <p className="mt-4 leading-7 text-slate-600">
+        <p className="mt-4 leading-7 text-slate-600 dark:text-gray-300">
           Alamat atau halaman web yang Anda cari tidak ada, telah dihapus, atau
           sedang dipindahkan.
         </p>

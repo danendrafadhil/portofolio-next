@@ -27,13 +27,13 @@ export default function Tentang() {
   return (
     <main className="mx-auto w-full max-w-6xl space-y-6 px-5 py-10 md:px-8 md:py-16">
       <header className="mb-8">
-        <h1 className="text-3xl font-bold text-utama md:text-4xl">
+        <h1 className="text-3xl font-bold text-utama dark:text-sky-200 md:text-4xl">
           Perkenalan
         </h1>
       </header>
 
       <Kartu judul="Tentang Saya">
-        <p className="leading-7 text-slate-600">
+        <p className="leading-7 text-slate-600 dark:text-gray-300">
           Saya tinggal di Malang dan senang mencoba hal baru di dunia teknologi.
           Saya ingin bisa membuat website yang bermanfaat untuk sekolah dan UMKM
           di sekitar rumah.
@@ -42,7 +42,7 @@ export default function Tentang() {
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         <Kartu judul="Hobi">
-          <ul className="list-inside list-disc space-y-2 text-slate-600">
+          <ul className="list-inside list-disc space-y-2 text-slate-600 dark:text-gray-300">
             <li>Berenang</li>
             <li>Membaca komik</li>
             <li>Membuat miniatur</li>
@@ -50,14 +50,14 @@ export default function Tentang() {
         </Kartu>
 
         <Kartu judul="Cita-cita">
-          <p className="mb-3 text-slate-600">
+          <p className="mb-3 text-slate-600 dark:text-gray-300">
             Menjadi{" "}
-            <span className="font-bold text-utama">
+            <span className="font-bold text-utama dark:text-sky-200">
               Full Stack Web Developer
             </span>
             . Langkah yang saya rencanakan:
           </p>
-          <ol className="list-inside list-decimal space-y-2 text-slate-600">
+          <ol className="list-inside list-decimal space-y-2 text-slate-600 dark:text-gray-300">
             <li>Menuntaskan Kelas Industri UBIG</li>
             <li>Magang di perusahaan teknologi</li>
             <li>Bekerja sebagai Web Developer</li>
@@ -66,16 +66,16 @@ export default function Tentang() {
       </div>
 
       <section id="keahlian" className="scroll-mt-24">
-        <h2 className="mb-4 text-2xl font-bold text-utama">
+        <h2 className="mb-4 text-2xl font-bold text-utama dark:text-sky-200">
           Keahlian yang Sedang Dipelajari
         </h2>
-        <p className="mb-4 text-slate-600">
+        <p className="mb-4 text-slate-600 dark:text-gray-300">
           Lihat kemampuan dan materi yang sedang saya pelajari.
         </p>
         <p>
           <Link
             href="/keahlian"
-            className="font-semibold text-utama underline-offset-4 hover:underline"
+            className="font-semibold text-utama underline-offset-4 hover:underline dark:text-sky-200"
           >
             Daftar keahlian
           </Link>
@@ -94,7 +94,7 @@ export default function Tentang() {
       </section>
 
       <Kartu judul="Jadwal Belajar">
-        <div className="overflow-x-auto rounded-lg border border-slate-100">
+        <div className="overflow-x-auto rounded-lg border border-slate-100 dark:border-gray-700">
           <table className="w-full border-collapse text-left text-sm">
             <thead>
               <tr className="bg-utama text-white">
@@ -109,11 +109,11 @@ export default function Tentang() {
                 </th>
               </tr>
             </thead>
-            <tbody className="text-slate-600">
+            <tbody className="text-slate-600 dark:text-gray-300">
               {jadwalBelajar.map((item) => (
                 <tr
                   key={item.hari}
-                  className="border-b border-slate-100 last:border-0"
+                  className="border-b border-slate-100 last:border-0 dark:border-gray-700"
                 >
                   <td className="p-3 font-medium">{item.hari}</td>
                   <td className="p-3">{item.waktu}</td>

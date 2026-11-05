@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import TombolTema from "@/components/TombolTema";
 
 const menu = [
   { href: "/", label: "Beranda" },
@@ -27,29 +28,32 @@ export default function Navbar() {
         >
           Danendra Fadhil Abiyu Hadianto
         </Link>
-        <nav aria-label="Navigasi utama">
-          <ul className="flex flex-wrap gap-x-5 gap-y-2">
-            {menu.map((item) => {
-              const active = isActive(item.href);
+        <div className="flex flex-wrap items-center gap-4">
+          <nav aria-label="Navigasi utama">
+            <ul className="flex flex-wrap gap-x-5 gap-y-2">
+              {menu.map((item) => {
+                const active = isActive(item.href);
 
-              return (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    aria-current={active ? "page" : undefined}
-                    className={`inline-block border-b-2 py-1 text-sm transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ${
-                      active
-                        ? "border-white font-semibold text-white"
-                        : "border-transparent text-slate-200"
-                    }`}
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
+                return (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      aria-current={active ? "page" : undefined}
+                      className={`inline-block border-b-2 py-1 text-sm transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ${
+                        active
+                          ? "border-white font-semibold text-white"
+                          : "border-transparent text-slate-200"
+                      }`}
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
+          <TombolTema />
+        </div>
       </div>
     </header>
   );
