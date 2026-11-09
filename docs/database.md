@@ -1,13 +1,13 @@
 # Struktur Database Portofolio
 
-Database disimpan di Supabase, project `portofolio-andi` (region
+Database disimpan di Supabase, project `portofolio-Danendra` (region
 Southeast Asia, Singapore). Alamat project dan
 publishable key disimpan di `.env.local`, yang tidak ikut di-commit
 karena tercantum di `.gitignore` (`.env*`).
 
 ## Tabel `projects`
 
-Daftar proyek portofolio Andi Pratama.
+Daftar proyek portofolio Danendra Fadhil Abiyu Hadianto.
 
 | Kolom | Tipe | Keterangan |
 | --- | --- | --- |
@@ -41,3 +41,18 @@ dengan `now()` |
 
 RLS aktif tanpa policy, sehingga pengunjung tidak bisa membaca
 pesan. Policy `insert` dibuat di Minggu 15.
+
+## Tabel `skills`
+
+Daftar keahlian Danendra Fadhil Abiyu Hadianto.
+
+| Kolom | Tipe | Keterangan |
+| --- | --- | --- |
+| `id` | `int8` | Primary key, nomor otomatis 1, 2, 3, ... |
+| `created_at` | `timestamptz` | Waktu baris dibuat, terisi otomatis
+dengan `now()` |
+| `nama` | `text` | Nama keahlian |
+| `level` | `text` | Dasar, Menengah, atau Mahir |
+
+RLS aktif. Policy `Pengunjung boleh membaca keahlian`: peran `anon`
+boleh `select` semua baris.
