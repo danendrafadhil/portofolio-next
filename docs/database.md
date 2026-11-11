@@ -56,3 +56,18 @@ dengan `now()` |
 
 RLS aktif. Policy `Pengunjung boleh membaca keahlian`: peran `anon`
 boleh `select` semua baris.
+
+## Tabel `jadwal`
+
+Daftar jadwal belajar mingguan Danendra Fadhil Abiyu Hadianto.
+
+| Kolom | Tipe | Keterangan |
+| --- | --- | --- |
+| `id` | `int8` | Primary key, nomor otomatis 1, 2, 3, ... |
+| `created_at` | `timestamptz` | Waktu baris dibuat, terisi otomatis dengan `now()` |
+| `hari` | `text` | Hari belajar |
+| `waktu` | `text` | Jam pelaksanaan |
+| `kegiatan` | `text` | Jenis kegiatan |
+
+RLS aktif. Policy `Pengunjung boleh membaca jadwal`: peran `anon` boleh `select` semua baris.
+
