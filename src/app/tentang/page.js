@@ -27,7 +27,7 @@ export default function Tentang() {
   return (
     <main className="mx-auto w-full max-w-6xl space-y-6 px-5 py-10 md:px-8 md:py-16">
       <header className="mb-8">
-        <h1 className="text-3xl font-bold text-utama dark:text-sky-200 md:text-4xl">
+        <h1 className="text-3xl font-bold text-primary md:text-4xl">
           Perkenalan
         </h1>
       </header>
@@ -52,7 +52,7 @@ export default function Tentang() {
         <Kartu judul="Cita-cita">
           <p className="mb-3 text-slate-600 dark:text-gray-300">
             Menjadi{" "}
-            <span className="font-bold text-utama dark:text-sky-200">
+            <span className="font-bold text-primary">
               Full Stack Web Developer
             </span>
             . Langkah yang saya rencanakan:
@@ -66,7 +66,7 @@ export default function Tentang() {
       </div>
 
       <section id="keahlian" className="scroll-mt-24">
-        <h2 className="mb-4 text-2xl font-bold text-utama dark:text-sky-200">
+        <h2 className="mb-4 text-2xl font-bold text-primary">
           Keahlian yang Sedang Dipelajari
         </h2>
         <p className="mb-4 text-slate-600 dark:text-gray-300">

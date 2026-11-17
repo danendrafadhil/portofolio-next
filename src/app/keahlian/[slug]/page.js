@@ -40,11 +40,11 @@ export default async function DetailKeahlian({ params }) {
         <p className="font-semibold text-aksen dark:text-red-400">
           Tingkat Kemahiran: {item.level}
         </p>
-        <h1 className="mt-2 text-3xl font-bold text-utama dark:text-sky-200 md:text-4xl">
+        <h1 className="mt-2 text-3xl font-bold text-primary md:text-4xl">
           {item.nama}
         </h1>
         <section className="mt-8">
-          <h2 className="text-xl font-bold text-utama dark:text-sky-200">
+          <h2 className="text-xl font-bold text-primary">
             Deskripsi dan Pengalaman
           </h2>
           <p className="mt-3 leading-7 text-slate-600 dark:text-gray-300">

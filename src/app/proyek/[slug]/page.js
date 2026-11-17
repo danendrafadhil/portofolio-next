@@ -1,88 +1,72 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { proyek } from "@/data/proyek";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+import { supabase } from "@/lib/supabase";
 
-export function generateStaticParams() {
-  return proyek.map(({ slug }) => ({ slug }));
+async function ambilProyek(slug) {
+  const { data } = await supabase
+    .from("projects")
+    .select("*")
+    .eq("slug", slug)
+    .single();
+  return data;
 }
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const item = proyek.find((proyekItem) => proyekItem.slug === slug);
+  const item = await ambilProyek(slug);
 
   if (!item) {
-    return {
-      title: "Proyek tidak ditemukan",
-    };
+    return { title: "Proyek tidak ditemukan" };
   }
 
-  return {
-    title: item.judul,
-    description: item.deskripsi,
-  };
+  return { title: item.judul, description: item.deskripsi };
 }
 
 export default async function DetailProyek({ params }) {
   const { slug } = await params;
-  const item = proyek.find((proyekItem) => proyekItem.slug === slug);
+  const item = await ambilProyek(slug);
 
   if (!item) {
     notFound();
   }
 
   return (
-    <main className="mx-auto w-full max-w-4xl px-5 py-10 md:px-8 md:py-16">
+    <main className="mx-auto max-w-3xl px-4 py-10">
       <Link
         href="/proyek"
-        className="font-semibold text-utama hover:underline dark:text-sky-200"
+        className="text-sm font-semibold text-aksen hover:underline"
       >
         &larr; Kembali ke daftar proyek
       </Link>
+      <h1 className="mt-4 text-3xl font-bold text-primary md:text-4xl">
+        {item.judul}
+      </h1>
+      <div className="mt-3 flex items-center gap-3">
+        <Badge>{item.kategori}</Badge>
+        <span className="text-muted-foreground">
+          Dibuat di {item.minggu}
+        </span>
+      </div>
+      <Image
+        src={item.gambar_url}
+        alt={`Tangkapan layar ${item.judul}`}
+        width={640}
+        height={420}
+        loading="eager"
+        className="mt-6 h-auto w-full rounded-xl border border-border"
+      />
+      <p className="mt-6 text-lg">{item.deskripsi}</p>
 
-      <article className="mt-6 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-800">
-        <div className="relative aspect-[16/9] bg-slate-100 dark:bg-gray-700">
-          <Image
-            src={item.gambar}
-            alt={`Tampilan ${item.judul}`}
-            fill
-            priority
-            sizes="(max-width: 896px) 100vw, 896px"
-            className="object-cover"
-          />
-        </div>
-
-        <div className="p-6 md:p-10">
-          <p className="text-sm font-medium text-slate-600 dark:text-gray-300">
-            {item.kategori} <span aria-hidden="true">&middot;</span> Dibuat di{" "}
-            {item.minggu}
-          </p>
-          <h1 className="mt-4 text-3xl font-bold text-utama dark:text-sky-200 md:text-4xl">
-            {item.judul}
-          </h1>
-          <p className="mt-4 text-lg leading-8 text-slate-600 dark:text-gray-300">
-            {item.ringkasan}
-          </p>
-
-          <section className="mt-8">
-            <h2 className="text-xl font-bold text-utama dark:text-sky-200">
-              Yang Saya Pelajari
-            </h2>
-            <ul className="mt-4 list-inside list-disc space-y-3 text-slate-600 dark:text-gray-300">
-              {item.halYangDipelajari.map((hal) => (
-                <li key={hal}>{hal}</li>
-              ))}
-            </ul>
-          </section>
-
-          <Link
-            href="/proyek"
-            className="mt-10 inline-flex rounded-lg bg-utama px-5 py-3 font-semibold text-white transition-colors hover:bg-[#142b45] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-utama"
-          >
-            Lihat semua proyek
-          </Link>
-        </div>
-      </article>
+      <Separator className="my-8" />
+      <h2 className="text-2xl font-bold text-primary">Yang Saya Pelajari</h2>
+      <ul className="mt-3 list-disc pl-5">
+        {(item.fitur || []).map((f) => (
+          <li key={f}>{f}</li>
+        ))}
+      </ul>
     </main>
   );
 }

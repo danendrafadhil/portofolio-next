@@ -2,10 +2,17 @@ import Hero from "@/components/Hero";
 import SkillCard from "@/components/SkillsCard";
 import ProyekCard from "@/components/ProyekCard";
 import Link from "next/link";
+import { buttonVariants } from "@/components/ui/button";
 import { keahlian } from "@/data/keahlian";
-import { proyek } from "@/data/proyek";
+import { supabase } from "@/lib/supabase";
 
-export default function Home() {
+export default async function Home() {
+  const { data: proyekTerbaru } = await supabase
+    .from("projects")
+    .select("*")
+    .order("created_at", { ascending: false })
+    .limit(3);
+
   return (
     <main className="mx-auto w-full max-w-6xl space-y-12 px-5 py-12 md:px-8 md:py-16">
       <section className="py-2 md:py-4">
@@ -16,7 +23,7 @@ export default function Home() {
       </section>
 
       <section>
-        <h2 className="mb-5 text-2xl font-bold text-utama dark:text-sky-200">
+        <h2 className="mb-5 text-2xl font-bold text-primary">
           Keahlian
         </h2>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -35,7 +42,7 @@ export default function Home() {
       <section>
         <div className="mb-5 flex flex-wrap items-end justify-between gap-3">
           <div>
-            <h2 className="text-2xl font-bold text-utama dark:text-sky-200">
+            <h2 className="text-2xl font-bold text-primary">
               Proyek Terbaru
             </h2>
             <p className="mt-2 text-slate-600 dark:text-gray-300">
@@ -44,13 +51,13 @@ export default function Home() {
           </div>
         </div>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {proyek.slice(0, 3).map((item) => (
+          {(proyekTerbaru || []).map((item) => (
             <ProyekCard key={item.slug} proyek={item} />
           ))}
         </div>
         <Link
           href="/proyek"
-          className="mt-5 inline-flex rounded-lg bg-aksen px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-red-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-aksen"
+          className={buttonVariants({ size: "lg", className: "mt-6" })}
         >
           Lihat semua proyek
         </Link>

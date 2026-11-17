@@ -1,47 +1,29 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardDescription, CardHeader, CardTitle } from
+"@/components/ui/card";
 
 export default function ProyekCard({ proyek }) {
-  const { slug, judul, deskripsi, gambar, teknologi } = proyek;
-
   return (
-    <article className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-shadow hover:shadow-md dark:border-gray-700 dark:bg-gray-800">
-      <Link
-        href={`/proyek/${slug}`}
-        className="group block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-utama"
-        aria-label={`Lihat detail ${judul}`}
-      >
-        <div className="relative aspect-[16/10] overflow-hidden bg-slate-100 dark:bg-gray-700">
-          <Image
-            src={gambar}
-            alt={`Tampilan ${judul}`}
-            fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-          />
-        </div>
-        <div className="p-5">
-          <ul
-            aria-label="Teknologi yang digunakan"
-            className="mb-4 flex flex-wrap gap-2"
-          >
-            {teknologi.map((nama) => (
-              <li
-                key={nama}
-                className="rounded-full bg-latar px-2.5 py-1 text-xs text-slate-700 dark:bg-gray-700 dark:text-gray-200"
-              >
-                {nama}
-              </li>
-            ))}
-          </ul>
-          <h3 className="text-lg font-bold text-utama dark:text-sky-200">
-            {judul}
-          </h3>
-          <p className="mt-2 line-clamp-3 text-sm leading-6 text-slate-600 dark:text-gray-300">
-            {deskripsi}
-          </p>
-        </div>
-      </Link>
-    </article>
-  );
+    <Link href={`/proyek/${proyek.slug}`} className="block rounded-
+xl hover:shadow-md">
+  <Card className="h-full">
+    <Image
+      src={proyek.gambar_url}
+      alt={`Tangkapan layar ${proyek.judul}`}
+      width={640}
+      height={420}
+      loading="eager"
+      className="h-auto w-full"
+    />
+    <CardHeader>
+      <Badge>{proyek.kategori}</Badge>
+      <CardTitle className="text-lg text-primary">{proyek.judul}
+</CardTitle>
+      <CardDescription>{proyek.deskripsi}</CardDescription>
+     </CardHeader>
+    </Card>
+  </Link>
+ );
 }

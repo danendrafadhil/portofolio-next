@@ -11,7 +11,7 @@ export default function KeahlianPage() {
   return (
     <main className="mx-auto w-full max-w-6xl px-5 py-10 md:px-8 md:py-16">
       <header className="mb-8">
-        <h1 className="text-3xl font-bold text-utama dark:text-sky-200 md:text-4xl">
+        <h1 className="text-3xl font-bold text-primary md:text-4xl">
           Keahlian Saya
         </h1>
         <p className="mt-3 max-w-2xl leading-7 text-slate-600 dark:text-gray-300">
@@ -33,7 +33,7 @@ export default function KeahlianPage() {
             <p className="mt-1 text-sm text-slate-600 dark:text-gray-300">
               Level: {item.level}
             </p>
-            <span className="mt-4 inline-block text-sm font-semibold text-utama dark:text-sky-200">
+            <span className="mt-4 inline-block text-sm font-semibold text-primary">
               Lihat detail &rarr;
             </span>
           </Link>

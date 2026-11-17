@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import ProyekCard from "@/components/ProyekCard";
+import { Button } from "@/components/ui/button";
 
-const kategoriProyek = ["HTML", "CSS", "JavaScript", "Next.js"];
+const kategoriProyek = ["Semua","HTML", "CSS", "JavaScript", "Next.js"];
 
 export default function FilterProyek({ proyek }) {
   const [kategoriAktif, setKategoriAktif] = useState("Semua");
@@ -21,33 +22,20 @@ export default function FilterProyek({ proyek }) {
   });
 
   return (
-    <section className="mt-8" aria-label="Daftar proyek">
-      <div className="flex flex-wrap gap-2" aria-label="Filter kategori">
-        {["Semua", ...kategoriProyek].map((kategori) => {
-          const aktif = kategoriAktif === kategori;
+    <div className="mt-8">
+        <div className="flex flex-wrap gap-2">
+            {kategoriProyek.map((k) => (
+              <Button key={k} variant={kategoriAktif === k ? "default" : "outline"} onClick={() => setKategoriAktif(k)}>
+                {k}
+              </Button>
+           ))}
+         </div>
 
-          return (
-            <button
-              key={kategori}
-              type="button"
-              onClick={() => setKategoriAktif(kategori)}
-              aria-pressed={aktif}
-              className={`rounded-full border px-4 py-2 text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-utama ${
-                aktif
-                  ? "border-aksen bg-aksen text-white"
-                  : "border-utama text-utama hover:bg-utama hover:text-white dark:border-sky-200 dark:text-sky-200"
-              }`}
-            >
-              {kategori}
-            </button>
-          );
-        })}
-      </div>
 
       <div className="mt-5 max-w-md">
         <label
           htmlFor="pencarian-proyek"
-          className="mb-2 block font-semibold text-utama dark:text-sky-200"
+          className="mb-2 block font-semibold text-primary"
         >
           Cari proyek
         </label>
@@ -61,13 +49,10 @@ export default function FilterProyek({ proyek }) {
             className="min-w-0 flex-1 rounded-lg border border-slate-300 bg-white px-4 py-2 text-gray-800 outline-none transition focus:border-utama focus:ring-2 focus:ring-utama/20 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100"
           />
           {pencarian && (
-            <button
-              type="button"
-              onClick={() => setPencarian("")}
-              className="text-sm font-semibold text-aksen hover:underline focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-aksen dark:text-red-400"
-            >
-              Hapus pencarian
-            </button>
+            <Button variant="link" onClick={() => setKata("")}
+              className="mt-2 px-0 text-aksen">
+            Hapus pencarian
+            </Button>
           )}
         </div>
       </div>
@@ -93,6 +78,6 @@ export default function FilterProyek({ proyek }) {
           Belum ada proyek yang cocok.
         </p>
       )}
-    </section>
+    </div>
   );
 }

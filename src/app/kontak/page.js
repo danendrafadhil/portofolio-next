@@ -12,7 +12,7 @@ export default function KontakPage() {
         <p className="font-semibold text-aksen dark:text-red-400">
           Ada pertanyaan?
         </p>
-        <h1 className="mt-2 text-3xl font-bold text-utama dark:text-sky-200 md:text-4xl">
+        <h1 className="mt-2 text-3xl font-bold text-primary md:text-4xl">
           Hubungi Saya
         </h1>
         <p className="mt-3 max-w-2xl leading-7 text-slate-600 dark:text-gray-300">
@@ -23,7 +23,7 @@ export default function KontakPage() {
       <div className="grid grid-cols-1 items-stretch gap-4 sm:grid-cols-[minmax(0,2fr)_minmax(10rem,1fr)] md:gap-5">
         <FormKontak />
         <aside className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm dark:border-gray-700 dark:bg-gray-800 md:p-6">
-          <h2 className="text-xl font-bold text-utama dark:text-sky-200">
+          <h2 className="text-xl font-bold text-primary">
             Temukan Saya di
           </h2>
           <ul className="mt-3 space-y-3">
