@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { buttonVariants } from "@/components/ui/button";
 
 export default function Hero({ nama, tagline }) {
   return (
@@ -19,23 +20,17 @@ export default function Hero({ nama, tagline }) {
         <p className="mt-3 text-lg text-muted-foreground">
           {tagline}
         </p>
-        <nav
-          aria-label="Navigasi portofolio"
-          className="mt-5 flex flex-wrap justify-center gap-3 md:justify-start"
-        >
-          <Link
-            href="/tentang"
-            className="rounded-lg bg-aksen px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-aksen"
-          >
-            Tentang saya
+        <div className="mt-5 flex justify-center gap-3 md:justify-start">
+          <Link href="/proyek" className={buttonVariants({ size: "lg" })}>
+            Lihat Proyek
           </Link>
           <Link
-            href="/keahlian"
-            className="rounded-lg border border-utama px-4 py-2 text-sm font-semibold text-utama transition-colors hover:bg-utama hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-utama dark:border-sky-200 dark:text-sky-200"
+            href="/kontak"
+            className={buttonVariants({ variant: "outline", size: "lg" })}
           >
-            Lihat keahlian
+            Hubungi Saya
           </Link>
-        </nav>
+        </div>
       </div>
     </section>
   );

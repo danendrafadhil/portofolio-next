@@ -3,10 +3,14 @@ import SkillCard from "@/components/SkillsCard";
 import ProyekCard from "@/components/ProyekCard";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
-import { keahlian } from "@/data/keahlian";
 import { supabase } from "@/lib/supabase";
 
 export default async function Home() {
+  const { data: skills } = await supabase
+    .from("skills")
+    .select("*")
+    .order("id");
+
   const { data: proyekTerbaru } = await supabase
     .from("projects")
     .select("*")
@@ -27,9 +31,10 @@ export default async function Home() {
           Keahlian
         </h2>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {keahlian.map((item) => (
-            <SkillCard key={item.slug} nama={item.nama} level={item.level} />
-          ))}
+          {skills &&
+            skills.map((item) => (
+              <SkillCard key={item.id} nama={item.nama} level={item.level} />
+            ))}
         </div>
         <Link
           href="/keahlian"
@@ -45,7 +50,7 @@ export default async function Home() {
             <h2 className="text-2xl font-bold text-primary">
               Proyek Terbaru
             </h2>
-            <p className="mt-2 text-slate-600 dark:text-gray-300">
+            <p className="mt-2 text-muted-foreground">
               Beberapa hasil latihan yang saya buat selama mengikuti kelas.
             </p>
           </div>
