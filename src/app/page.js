@@ -6,6 +6,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { supabase } from "@/lib/supabase";
 
 export const revalidate = 60;
+
 export default async function Home() {
   const { data: skills } = await supabase
     .from("skills")
@@ -37,9 +38,9 @@ export default async function Home() {
               <SkillCard key={item.id} nama={item.nama} level={item.level} />
             ))}
         </div>
-        <Link
+               <Link
           href="/keahlian"
-          className="mt-5 inline-flex rounded-lg bg-aksen px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-red-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-aksen"
+          className={buttonVariants({ size: "lg", className: "mt-6" })}
         >
           Lihat semua keahlian
         </Link>

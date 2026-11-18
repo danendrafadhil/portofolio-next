@@ -1,12 +1,9 @@
 import Kartu from "@/components/Kartu";
-import SkillCard from "@/components/SkillsCard";
-import Link from "next/link";
-import { keahlian } from "@/data/keahlian";
 
 export const metadata = {
   title: "Tentang Saya",
   description:
-    "Cerita, hobi, cita-cita, keahlian, dan jadwal belajar Danendra Fadhil Abiyu Hadianto.",
+    "Cerita, hobi, cita-cita, dan jadwal belajar Danendra Fadhil Abiyu Hadianto.",
 };
 
 const jadwalBelajar = [
@@ -33,7 +30,7 @@ export default function Tentang() {
       </header>
 
       <Kartu judul="Tentang Saya">
-        <p className="leading-7 text-slate-600 dark:text-gray-300">
+        <p className="leading-7 text-muted-foreground">
           Saya tinggal di Malang dan senang mencoba hal baru di dunia teknologi.
           Saya ingin bisa membuat website yang bermanfaat untuk sekolah dan UMKM
           di sekitar rumah.
@@ -42,7 +39,7 @@ export default function Tentang() {
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         <Kartu judul="Hobi">
-          <ul className="list-inside list-disc space-y-2 text-slate-600 dark:text-gray-300">
+          <ul className="list-inside list-disc space-y-2 text-muted-foreground">
             <li>Berenang</li>
             <li>Membaca komik</li>
             <li>Membuat miniatur</li>
@@ -50,14 +47,14 @@ export default function Tentang() {
         </Kartu>
 
         <Kartu judul="Cita-cita">
-          <p className="mb-3 text-slate-600 dark:text-gray-300">
+          <p className="mb-3 text-muted-foreground">
             Menjadi{" "}
             <span className="font-bold text-primary">
               Full Stack Web Developer
             </span>
             . Langkah yang saya rencanakan:
           </p>
-          <ol className="list-inside list-decimal space-y-2 text-slate-600 dark:text-gray-300">
+          <ol className="list-inside list-decimal space-y-2 text-muted-foreground">
             <li>Menuntaskan Kelas Industri UBIG</li>
             <li>Magang di perusahaan teknologi</li>
             <li>Bekerja sebagai Web Developer</li>
@@ -65,36 +62,8 @@ export default function Tentang() {
         </Kartu>
       </div>
 
-      <section id="keahlian" className="scroll-mt-24">
-        <h2 className="mb-4 text-2xl font-bold text-primary">
-          Keahlian yang Sedang Dipelajari
-        </h2>
-        <p className="mb-4 text-slate-600 dark:text-gray-300">
-          Lihat kemampuan dan materi yang sedang saya pelajari.
-        </p>
-        <p>
-          <Link
-            href="/keahlian"
-            className="font-semibold text-utama underline-offset-4 hover:underline dark:text-sky-200"
-          >
-            Daftar keahlian
-          </Link>
-        </p>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {keahlian.map((item) => (
-            <Link
-              key={item.slug}
-              href={`/keahlian/${item.slug}`}
-              className="rounded-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-utama"
-            >
-              <SkillCard nama={item.nama} level={item.level} />
-            </Link>
-          ))}
-        </div>
-      </section>
-
       <Kartu judul="Jadwal Belajar">
-        <div className="overflow-x-auto rounded-lg border border-slate-100 dark:border-gray-700">
+        <div className="overflow-x-auto rounded-lg border border-border">
           <table className="w-full border-collapse text-left text-sm">
             <thead>
               <tr className="bg-utama text-white">
@@ -109,11 +78,11 @@ export default function Tentang() {
                 </th>
               </tr>
             </thead>
-            <tbody className="text-slate-600 dark:text-gray-300">
+            <tbody className="text-muted-foreground">
               {jadwalBelajar.map((item) => (
                 <tr
                   key={item.hari}
-                  className="border-b border-slate-100 last:border-0 dark:border-gray-700"
+                  className="border-b border-border last:border-0"
                 >
                   <td className="p-3 font-medium">{item.hari}</td>
                   <td className="p-3">{item.waktu}</td>
